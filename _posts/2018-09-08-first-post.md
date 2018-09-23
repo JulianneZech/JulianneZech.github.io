@@ -3,7 +3,7 @@ layout: post
 title: "Current Favorites"
 date: 2018-09-08
 ---
-Reading:
+<b>Reading:</b>
 
 <a href="https://www.goodreads.com/book/show/17660462-the-everything-store">The Everything Store: Jeff Bezos and the Age of Amazon</a> by Brad Stone
          
@@ -11,8 +11,24 @@ Reading:
   
 <a href="https://www.goodreads.com/book/show/7445.The_Glass_Castle"> The Glass Castle</a> by Jeannette Walls
 
-Podcasts:
+<b>Podcasts:</b>
 
-<a href="https://tim.blog/2018/03/08/joe-gebbia-co-founder-of-airbnb/">The Glass Castle by Jeannette Walls</a>
+<a href="https://tim.blog/2018/03/08/joe-gebbia-co-founder-of-airbnb/">The Tim Ferris Show #301</a> with Joe Gebbia, Co-Founder of Airbnb
 
-Restaurants:
+<a href="https://tim.blog/2018/06/05/the-tim-ferriss-show-transcripts-john-crowley/"> The Tim Ferris Show #225</a> with John Crowley, Chairmain and CEO of Amicus Therapeutics
+
+<a href="https://tim.blog/2017/09/29/eric-ripert/>The Tim Ferris Show #268</a> with Eric Ripert, Co-Owner and Executive Chef at Le Bernardin
+
+<b>Restaurants:</b>
+
+<a href="https://thedabney.com/">The Dabney</a>
+
+<a href="https://www.yelp.com/biz/da-hong-pao-washington">Da Hong Pao</a>
+
+<a href="http://www.lapisdc.com/">Lapis</a>
+
+<a href="http://pappedc.com/">Pappe</a>
+
+
+
+
