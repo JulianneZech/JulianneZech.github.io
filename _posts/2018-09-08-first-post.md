@@ -3,7 +3,7 @@ layout: post
 title: "Current Favorites"
 date: 2018-09-08
 ---
-<b>Reading:</b>
+<b>Reading</b>
 
 <a href="https://www.goodreads.com/book/show/17660462-the-everything-store">The Everything Store: Jeff Bezos and the Age of Amazon</a> by Brad Stone
          
@@ -11,7 +11,7 @@ date: 2018-09-08
   
 <a href="https://www.goodreads.com/book/show/7445.The_Glass_Castle"> The Glass Castle</a> by Jeannette Walls
 
-<b>Podcasts:</b>
+<b>Podcasts</b>
 
 <a href="https://tim.blog/2018/03/08/joe-gebbia-co-founder-of-airbnb/">The Tim Ferris Show #301:</a> Joe Gebbia, Co-Founder of Airbnb
 
@@ -23,7 +23,7 @@ date: 2018-09-08
 
 <a href="https://www.analyticsvidhya.com/blog/2018/08/datahack-radio-episode-4-coursera-data-science-emily-glassberg-sands/"> DataHack Radio Episode #6:</a> Exploring Techniques and Strategy with Coursera’s Head of Data Science, Emily Glassberg Sands
 
-<b>Restaurants:</b>
+<b>Restaurants</b>
 
 <a href="https://thedabney.com/">The Dabney</a>
 
