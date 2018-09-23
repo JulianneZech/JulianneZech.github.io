@@ -19,6 +19,10 @@ date: 2018-09-08
 
 <a href="https://tim.blog/2017/09/29/eric-ripert/">The Tim Ferris Show #268</a> with Eric Ripert, Co-Owner and Executive Chef at Le Bernardin
 
+<a href="https://www.oreilly.com/ideas/how-machine-learning-will-accelerate-data-management-systems"> O’Reilly Data Show Podcast</a> Tim Kraska, Associate Professor at MIT on How Machine Learning will Accelerate Data Management Systems
+
+<a href="https://www.analyticsvidhya.com/blog/2018/08/datahack-radio-episode-4-coursera-data-science-emily-glassberg-sands/"> DataHack Radio Episode #6:</a> Exploring Techniques and Strategy with Coursera’s Head of Data Science, Emily Glassberg Sands
+
 <b>Restaurants:</b>
 
 <a href="https://thedabney.com/">The Dabney</a>
@@ -28,7 +32,4 @@ date: 2018-09-08
 <a href="http://www.lapisdc.com/">Lapis</a>
 
 <a href="http://pappedc.com/">Pappe</a>
-
-
-
 
