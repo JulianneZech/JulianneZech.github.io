@@ -17,7 +17,7 @@ date: 2018-09-08
 
 <a href="https://tim.blog/2018/06/05/the-tim-ferriss-show-transcripts-john-crowley/"> The Tim Ferris Show #225</a> with John Crowley, Chairmain and CEO of Amicus Therapeutics
 
-<a href="https://tim.blog/2017/09/29/eric-ripert/>The Tim Ferris Show #268</a> with Eric Ripert, Co-Owner and Executive Chef at Le Bernardin
+<a href="https://tim.blog/2017/09/29/eric-ripert/">The Tim Ferris Show #268</a> with Eric Ripert, Co-Owner and Executive Chef at Le Bernardin
 
 <b>Restaurants:</b>
 
