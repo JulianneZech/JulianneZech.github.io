@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Current Favorites"
+title: "September Favorites"
 date: 2018-09-08
 ---
 <b>Reading</b>
@@ -9,7 +9,7 @@ date: 2018-09-08
          
 <a href="https://www.goodreads.com/book/show/2612.The_Tipping_Point">The Tipping Point: How Little Things Can Make a Big Difference</a> by Malcolm Gladwell
   
-<a href="https://www.goodreads.com/book/show/7445.The_Glass_Castle"> The Glass Castle</a> by Jeannette Walls
+<a href="https://www.goodreads.com/book/show/44882.Code"> Code: The Hidden Language of Computer Hardware and Software</a> by Charles Petzold
 
 <b>Podcasts</b>
 
