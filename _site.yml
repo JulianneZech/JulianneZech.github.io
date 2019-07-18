@@ -8,7 +8,7 @@ navbar:
     - text: "Projects"
       href: work.html
     - text: "Resume"
-      href: Julianne Zech Resume.pdf
+      href: Julianne_Zech_Resume.pdf
 output:
   html_document:
     theme: flatly
