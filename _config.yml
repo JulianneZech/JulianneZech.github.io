@@ -2,3 +2,7 @@ Name: Julianne Zech
 markdown: kramdown
 
 permalink: /Work/:year/:month/:day/:title
+
+output:
+  html_document:
+    theme: cosmo
