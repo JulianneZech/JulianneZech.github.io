@@ -1,5 +1,6 @@
 Name: Julianne Zech
-markdown: kramdown
+#markdown: kramdown
+rmarkdown::render()
 
 permalink: /Work/:year/:month/:day/:title
 
