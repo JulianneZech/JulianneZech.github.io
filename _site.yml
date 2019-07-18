@@ -1,0 +1,17 @@
+name: "juliannes-website"
+output_dir: "."
+navbar:
+  title: "JZ"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Projects"
+      href: work.html
+    - text: "Resume"
+      href: res.pdf
+output:
+  html_document:
+    theme: flatly
+    includes:
+     after_body: footer.html
+    css: style.css

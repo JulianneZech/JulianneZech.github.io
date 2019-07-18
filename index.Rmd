@@ -1,0 +1,21 @@
+---
+title: "Julianne Zech"
+output: html_document
+---
+<br>
+Hello world! I'm a senior at Georgetown University pursuing a double major in computer science and math. My interests include data science, machine learning, and natural language processing. When I'm not in class or working on a project, you can probably find me cheering at a Georgetown basketball game, exploring the DC restaurant scene, or whipping up my own culinary creation.
+<br>
+<br>
+More about me:
+
+* I'm a research assistant in Dr. Lisa Singh's Data-Centric Computing Lab at Georgetown, where I am building data processing pipelines and machine learning models to classify experience tweets as part of a large [#MeToo project](https://www.georgetown.edu/news/metoo-movement-twitter-data-mined-by-computer-science-professor) in collaboration with the [Massive Data Institute](https://mccourt.georgetown.edu/massive-data-institute) at the McCourt School of Public Policy and faculty at Georgetown Law School
+
+
+* To support my full-time research this summer, I was awareded a [fellowship](https://gurop.georgetown.edu/summer) from the Georgetown Undergraduate Research & Opportunities Program and a [grant](https://www.hluce.org/programs/clare-boothe-luce-program/) from the Clare Boothe Luce Foundation
+
+
+* As part of my role as the Campus Outreach Director for [GU Women Coders](http://guwecode.georgetown.domains/), I plan and publicize coding lessons and workshops to encourage students on campus to develop digital literacy and consider careers in technology
+
+
+* I was fully funded by the Georgetown Computer Science Departmnt to attend the 2019 Grace Hopper Celebration, and I'm looking forward to my first GHC experience
+<br>
