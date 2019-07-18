@@ -1,9 +1,0 @@
-Name: Julianne Zech
-#markdown: kramdown
-rmarkdown::render()
-
-permalink: /Work/:year/:month/:day/:title
-
-output:
-  html_document:
-    theme: cosmo
