@@ -1,0 +1,156 @@
+---
+title: "Data Analysis of Police Shootings in the United States"
+author: "Julianne Zech"
+date: "5/29/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(forcats)
+```
+
+In this post, I will design some visualizations to aid in the analysis of data from the Washington Post's [Police Shooting Database](https://github.com/washingtonpost/data-police-shootings). 4,306 people have been shot and killed by police in the United States between January 1, 2015 to present day (May 29, 2019). The data file is a comma-delimited .txt with column names on the first line, so I can use the command below to read the data into a data.frame object.
+
+```{r input, message=FALSE}
+shootings <- read_delim(file="fatal-police-shootings-data.txt", delim=",", col_names=T)
+```
+
+## Gender
+
+The first visualization I'll create is a bar graph displaying the relative frequencies of gender among victims of police shootings. 
+
+```{r graph1, echo=TRUE, message=FALSE, fig.align="center"}
+# look at unique values for gender
+unique(shootings$gender)
+
+# since there are NA (missing) values, replace them with a string
+shootings$gender[is.na(shootings$gender)] <- "NA"
+
+# rename values so the graph is easier to understand
+shootings <- mutate(shootings, gender = fct_recode(gender, "Male" = "M", "Female" = "F", "Unknown" = "NA"))
+
+# plot the graph
+ggplot(data=shootings) + geom_bar(aes(x=gender, fill=gender)) + 
+  scale_fill_manual(values=c("plum1", "darkblue", "black"), name="Gender") +
+  labs(title="Police Shooting Victims by Gender", x="Gender", y="Number of Victims") + 
+  theme_minimal() + theme(plot.title = element_text(hjust = 0.5))
+
+dim(subset(shootings, shootings$gender == "Unknown"))
+```
+It looks like there are only a few unknown values to know the exact number, I can execute the command above and look at the number of rows that match, which is 5 in this case.The results from this graph are unsurprising. The overwhelming majority (95.22%) of victims of fatal police shootings in the U.S. from 2015 to present are male. 
+
+
+## Race
+
+The second visualization is a pie chart that shows the relative frequencies of race among victims of police shootings. 
+
+```{r graph2, echo=TRUE, message=FALSE, fig.align="center"}
+
+# look at unique values for race
+unique(shootings$race)
+
+# since there are NA (missing) values, replace them with a string
+shootings$race[is.na(shootings$race)] <- "NA"
+
+# rename values so the graph is easier to understand
+shootings <- mutate(shootings, race = fct_recode(race, "White, non-hispanic" = "W", "Black, non-hispanic" = "B",
+                                                 "Asian" = "A", "Native American" = "N", "Hispanic" = "H",
+                                                 "Other" = "O", "Unknown" = "NA"))
+
+# plot the graph
+ggplot(data=shootings) + geom_bar(aes(x=0, fill=race, y=..count../sum(..count..))) + 
+  coord_polar(theta="y") + labs(title="Police Shooting Victims by Race", x="Race", y="Number of Victims") +
+  scale_fill_brewer(palette="Blues", name="Race") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+White non-hispanics make up the largest percentage of fatal shooting victims at 45.31%, followed by black non-hispanics at 23.06% and hispanics at 16.67%. Asians, Native Americans, and people of other races make up very small proportions. According to the [U.S. Census Bureau](https://www.census.gov/quickfacts/fact/table/US/PST045218) as of July 1, 2018, white non-hispanics comprise 60.7% of the population, black non-hispanics comprise 13.4%, and Hispanics 18.6%. Although the largest number of shooting victims are white non-hispanics, black non-hispanics are shot at a rate that is significantly higher than their representation in the overwhelming population.  Asians comprise only 5.8% of the population and account for only 1.65% of shootings. Native Americans comprise 0.2% of the population but count 1.46% of shooting victims. There are also a significant fraction of victims whose racial background is unknown.
+
+## Threat Level 
+
+Next, I'll create a dot chart that depicts the relative frequencies of threat level the victim posed among victims of police shootings. 
+
+```{r graph3, echo=TRUE, message=FALSE, fig.align="center"}
+ggplot(data=shootings) + geom_bar(aes(x=threat_level, fill=threat_level), width=0.01) + 
+  geom_point(aes(x=threat_level, color=threat_level), stat="count", size=2, show.legend = F) +
+  labs(title="Police Shooting Victims by Threat Level", x="Threat Level", y="Count of Victims") +
+  theme_minimal() + scale_fill_discrete(name="Threat Level") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+The threat level metric was used to flag incidents for a [2015 Post story](https://www.washingtonpost.com/sf/investigative/2015/10/24/on-duty-under-fire/?utm_term=.610fea535d7e). The attack label criteria is defined as a direct and immediate threat to life, including incidents where officers or others were shot at, threatened with a gun, or attacked with physical force or other weapons. The other category includes many incidents where officers or others faced dignificant threats, but the attack category is meant to denote the highest level of threat. Given these definitions, the results of the graph are unsurprising. The majority of fatal shootings (63.07%) occurred when officers faced threats to their lives, and 31.80% occurred when officers faced threats that were not considered to be at the most dangerous level (most commonly where individuals who brandished knives and refused to drop them). 221 shootings (5.13% of the total) fall under the undetermined category. These cases include individuals who police said failed to follow their orders, made sudden movements, or were accidentally shot and thoses where the Post was unable to determine the circumstances of the shootings. 
+
+## Manner of Death 
+
+To display the manner of death data, I'll create a coxcomb chart.
+
+```{r graph4, echo=TRUE, message=FALSE, fig.align="center"}
+# create a custom theme with minimalist background
+custom_theme <- theme_minimal() +
+  theme(
+  panel.border = element_blank(),
+  )
+
+# rename levels
+shootings <- mutate(shootings, manner_of_death = fct_recode(manner_of_death, "Shot\nand\nTasered" = "shot and Tasered", "Shot" = "shot"))
+
+# plot the chart
+ggplot(data=shootings) + geom_bar(aes(x=manner_of_death, fill=manner_of_death, y=..count../sum(..count..)), width=1) + coord_polar() + scale_y_sqrt() + scale_fill_brewer(palette="Blues" ,name="Manner of Death") + 
+  labs(title="Police Shooting Victims by Manner of Death", x="Manner of Death", y="Number of Victims") +
+  custom_theme + theme(plot.title = element_text(hjust = 0.5)) 
+```
+
+94.77% of victims were shot and 5.23% were shot and tasered. These results make sense, but it does seem slightly surprising that if an officer was close enough to a victim to use a taser that shots would be fired at all. It would be interesting to take a closer look at these cases. Was the victim tased first? Were there typically multiple officers involved?
+
+## Use of Body Cameras and Signs of Mental Illness 
+
+Next, I'll create a side-by-side bar chart displaying the bivariate frequency of use of body cameras and signs of mental illness. 
+
+```{r graph5, echo=TRUE, message=FALSE, fig.align="center"}
+ggplot(data=shootings) + geom_bar(aes(x=body_camera, fill=signs_of_mental_illness), position="dodge") + 
+  scale_fill_brewer(palette="Blues",name="Signs of Mental Illness") + 
+  labs(title="Police Shooting Victims with Signs of Mental Illness and Body Camera Used", x="Body Camera Used", y="Number of Victims") +
+  theme_minimal() + theme(plot.title = element_text(size=10, hjust = 0.5))
+```
+
+We can see that body cameras were used in the minority of fatal shootings (only 11.08%) and that victims who had shown signs of mental illness make up a minority, but a significant one (23.39%). It appears that the distributions of cases where body cameras were and were not used is similar for victims who had signs of mental illness and those who did not.  
+
+
+
+## Race & Flight Status 
+
+My next graph is stacked bar charts of race conditional on flight status
+
+```{r graph6, echo=TRUE, message=FALSE, fig.align="center"}
+# look at unique values for flight status
+unique(shootings$flee)
+
+# since there are NA (missing) values, replace them with a string
+shootings$flee[is.na(shootings$flee)] <- "Unknown"
+
+# plot graph
+ggplot(data=shootings) + geom_bar(aes(x=race, fill=flee), position="fill") + 
+  labs(title="Race of Police Shooting Victims Conditional on Flight Status", x="Race", y="Proportion") +
+  theme_minimal() + scale_fill_brewer(palette="Blues", name="Flight Status") + coord_flip() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+This graph allows us to answer questions such as "Among Asians, which percentage were fleeing by car?" or "Among Hispanics, which percentage were not fleeing?" From this graph, it's clear that the majority of victims of all races were not fleeing. Native Americans and blacks have the highest proportions of fleeing on foot among the races. We saw above that these racial groups are the only ones with death rates higher than their proportion of the U.S. population. 
+
+
+## Flight Status & Race
+
+My final visualization is stacked bar charts depicting the conditional distribution of flight status dependent on race.
+
+```{r graph7, echo=TRUE, message=FALSE, fig.align="center"}
+ggplot(data=shootings) + geom_bar(aes(x=flee, fill=race), position="fill") + 
+  labs(title="Flight Status of Police Shooting Victims Conditional on Race", x="Flight Status", y="Proportion") +
+  theme_minimal() + scale_fill_brewer(palette="PiYG", name="Race") + coord_flip() +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+This graph allows us to answer questions of the type "Among those who fled on foot, which percentage of them were white, non-hispanics?" This type of display is less useful for the types of questions we are trying to answer. Here, we are treating flight status as the independent variable and race as the dependent variable. In the previous stakced bar plot, we treated race as the independent variable and flight status as the dependent variable, which is more intuitive.
+
+
+
+
