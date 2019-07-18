@@ -5,10 +5,10 @@ layout: feed
 <feed xmlns="http://www.w3.org/2005/Atom">
 
 	<title>Work</title>
-	<link href="http://juliannezech.github.io/blog/atom.xml" rel="self"/>
-	<link href="http://juliannezech.github.io/blog"/>
+	<link href="http://juliannezech.github.io/work/atom.xml" rel="self"/>
+	<link href="http://juliannezech.github.io/work"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>http://juliannezech.github.io/blog</id>
+	<id>http://juliannezech.github.io/work</id>
 	<author>
 		<name>Julianne Zech</name>
 		<email>jkz13@georgetown.edu</email>
