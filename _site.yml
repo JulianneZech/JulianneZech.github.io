@@ -1,9 +1,0 @@
-name: "julianne's-website"
-output_dir: "."
-navbar:
-  title: "Julianne Zech"
-  left:
-    - text: "Home"
-      href: index.html
-    - text: "About Me"
-      href: about.html
