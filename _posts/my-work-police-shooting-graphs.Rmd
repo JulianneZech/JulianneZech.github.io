@@ -2,8 +2,7 @@
 title: "Data Analysis of Police Shootings in the United States"
 author: "Julianne Zech"
 date: "5/29/2019"
-output: html_document:
-    keep_md: true
+output: html_document
 ---
 
 ```{r setup, include=FALSE, message=FALSE}
