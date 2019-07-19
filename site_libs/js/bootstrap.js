@@ -2341,11 +2341,7 @@ if (typeof jQuery === 'undefined') {
     $.fn.affix = old
     return this
   }
-  
-  $(document).ready(function() {
-    $(".dropdown-toggle").dropdown();
-});
-
+ 
 
   // AFFIX DATA-API
   // ==============
