@@ -1,1 +1,1 @@
-Contains all images/graphics/icons.
+Contains all images and graphics used on the site.
