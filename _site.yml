@@ -7,7 +7,7 @@ navbar:
       href: index.html
     - text: "Projects"
       href: work.html
-    - text: Bookshelf
+    - text: "Bookshelf"
       href: books.html
     - text: "Resume"
       href: Julianne-Zech-Resume.pdf
