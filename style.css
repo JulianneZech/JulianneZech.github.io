@@ -1,3 +1,10 @@
+code{white-space: pre;}
+
+pre:not([class]) {
+    background-color: white;
+}
+
+
 h1, .h1 {
     <p style="text-align: center;"></p>
 }
