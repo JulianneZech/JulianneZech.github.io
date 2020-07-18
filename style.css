@@ -1,3 +1,4 @@
+<style type="text/css">
 h1, .h1 {
     <p style="text-align: center;"></p>
 }
@@ -131,7 +132,6 @@ body {
 
 <!-- tabsets -->
 
-<style type="text/css">
 .tabset-dropdown > .nav-tabs {
   display: inline-table;
   max-height: 500px;
