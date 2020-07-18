@@ -44,6 +44,12 @@ p {
   top:0px;
   }
 
+img { 
+    width: 50%; 
+    height: 50%; 
+    object-fit: contain; 
+} 
+
 .main-container {
   max-width: 940px;
   margin-left: auto;
