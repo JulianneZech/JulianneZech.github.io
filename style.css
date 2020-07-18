@@ -32,8 +32,9 @@ h6 {
 }
 
 p {
-  line-height:20px;
+  line-height:80px;
 }
+
 .table th:not([align]) {
   text-align: left;
 }
