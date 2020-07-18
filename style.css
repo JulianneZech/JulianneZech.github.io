@@ -207,8 +207,8 @@ body {
 
 /* Create four equal columns that sits next to each other */
 .column {
-  flex: 50%;
-  max-width: 50%;
+  flex: 40%;
+  max-width: 40%;
   padding: 0 8px;
 }
 
@@ -221,8 +221,8 @@ body {
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .column {
-    flex: 50%;
-    max-width: 50%;
+    flex: 40%;
+    max-width: 40%;
   }
 }
 
