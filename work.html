@@ -30,13 +30,13 @@
 
 <body>
 
-  {% include header.html %}
-
-<div class="fluid-row" id="header">
+<div class="fluid-row" id="header"></div>   
+                                           
+{% include header.html %}
+ 
+<div class="container-fluid main-container">
 
 <h1 class="title toc-ignore">Work</h1>
-
-</div>
 
 <h3 class="title toc-ignore">Sample Research Projects</h3>
   <br>
@@ -94,7 +94,7 @@
 <p> The main project in this class was an Secure Instant Messenger Application that uses threading to send encrypted and authenticated messages to an unlimited number of other clients. I used Google Cloud protocol buffers in my design and tested the application on Google Cloud virtual machines.</p>
 <hr />
 
-  <a href="footer.html"></a>
+{% include footer.html %}
 
 </div>
 
