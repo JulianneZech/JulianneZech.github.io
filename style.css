@@ -4,11 +4,6 @@ pre:not([class]) {
     background-color: white;
 }
 
-
-h1, .h1 {
-    <p style="text-align: center;"></p>
-}
-
 h1 {
   font-size: 34px;
 }
