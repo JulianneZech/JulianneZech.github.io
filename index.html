@@ -30,7 +30,7 @@
 
 <!-- code folding -->
                             
-                            <script src="http://www.w3schools.com/lib/w3data.js"></script>
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
 
 </head>
 
@@ -38,12 +38,12 @@
 
 <div class="container-fluid main-container">
                                            
-<div w3-include-html="header.html"></div> 
-<script>
-w3IncludeHTML();
-</script>
-
-                                            
+<script src="jquery.js"></script> 
+<script> 
+$(function(){
+  $("#DivContent").load("header.html"); 
+});
+</script>                                    
                                     
 <div class="fluid-row" id="header">
 
