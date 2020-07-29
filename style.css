@@ -58,7 +58,7 @@ img {
   width: 50%;
 }
 .center_text {
-  display: inline-block;
+  width:100%;
   text-align: center;
 }
 
