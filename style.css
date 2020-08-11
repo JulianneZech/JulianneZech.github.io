@@ -52,11 +52,15 @@ img {
 }
 
 .center_img {
+  width:256px;
+  height:256px;
+  border:5px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
+
 .center_text {
   width:100%;
   text-align: center;
