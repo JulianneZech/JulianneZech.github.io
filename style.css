@@ -242,14 +242,17 @@ body {
 }
 
 /* footer */
-#footer_container {
+.footer_container {
     background-color:white;
     height:100px;
     width:100px;
     padding:30px;
     
 }
-footer_img {
+.footer_img {
+    width:42px;
+    height:42px;
+    border:5px;
     border-radius:50%;
     width:100px;
     box-shadow: 0px 0px 10px 10px rgba(85, 83, 74, 0.74);
