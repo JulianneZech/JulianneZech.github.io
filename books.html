@@ -144,6 +144,9 @@ d3.json("nyc.json", function(error, nyc) {
       .attr("d", path)
       .on("mouseenter", function(d) {
         console.log(d);
+      d3.select(this)
+      .style("stroke-width", 1.5)
+      .style("stroke-dasharray", 0)
 
 
       d3.select("#neighborhoodPopover")
@@ -151,7 +154,7 @@ d3.json("nyc.json", function(error, nyc) {
       .style("opacity", 1)
       .style("left", (d3.event.pageX) + "px")
       .style("top", (d3.event.pageY) + "px")
-      .text(d.properties.neighborhood)
+      .text(d.properties.NTAName)
 
     })
     .on("mouseleave", function(d) { 
