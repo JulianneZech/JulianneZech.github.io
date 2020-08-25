@@ -196,10 +196,10 @@ d3.json("nyc.json", function(error, nyc) {
       alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
     
-      var projection = projection(d3.geoConicConformal())
-      .parallels([33, 45])
-      .rotate([96, -39])
-      .fitSize([width, height], "nyc.json");
+      var projection = d3.geoConicConformal();
+      //.parallels([33, 45])
+      //.rotate([96, -39])
+      //.fitSize([width, height], "nyc.json");
     
       //var path = d3.geo.path()
       //.projection(projection);
