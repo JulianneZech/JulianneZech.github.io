@@ -93,7 +93,7 @@
 
 </div>
 
-<!--
+
 <style>
 
 path {
@@ -172,9 +172,30 @@ d3.json("nyc.json", function(error, nyc) {
     console.log(nyc);
 });
 
+$.ajax({
+    url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
+    type: "GET",
+    data: {
+      "$limit" : 20000,
+      "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
+    }
+}).done(function(data) {
+  alert("Retrieved " + data.length + " records from the dataset!");
+
+  var projection = d3.geo.albersUsa();
+  svg.append("circle").attr("r",5).attr("transform", function() {return "translate(" + projection([-75,43]) + ")";});
+
+  svg.selectAll("circles.points")
+  .data(data)
+  .enter()
+  .append("circle")
+  .attr("r",5)
+  .attr("transform", function(d) {return "translate(" + projection([d.long,d.lat]) + ")";});
+});
 </script>
 </body>
--->  
+  
+
  {% include footer.html %}
 
 </body>
