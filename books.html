@@ -183,37 +183,39 @@ d3.json("nyc.json", function(error, nyc) {
     });
 
     console.log(nyc);
-});
-
-$.ajax({
+  
+  $.ajax({
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
       "$limit" : 20000,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
-}).done(function(data) {
-  alert("Retrieved " + data.length + " records from the dataset!");
-  console.log(data);
+    }).done(function(data) {
+      alert("Retrieved " + data.length + " records from the dataset!");
+      console.log(data);
 
-  var path = d3.geoPath()
-      .projection(d3.geoConicConformal()
-      .parallels([33, 45])
-      .rotate([96, -39])
-      .fitSize([width, height], nyc));
+      var path = d3.geoPath()
+          .projection(d3.geoConicConformal()
+          .parallels([33, 45])
+          .rotate([96, -39])
+          .fitSize([width, height], nyc));
+
+       svg.selectAll(".dot")
+        .data(data)
+        .enter().append("circle", ".pin")
+        .attr("r", 5)
+        .attr("transform", function(d) {
+          console.log(d.longitude)
+          return "translate(" + projection([
+            d.longitude,
+            d.latitude
+          ]) + ")";
+       });
+    });
   
-   svg.selectAll(".dot")
-    .data(data)
-    .enter().append("circle", ".pin")
-    .attr("r", 5)
-    .attr("transform", function(d) {
-      return "translate(" + projection([
-        d.longitude,
-        d.latitude
-      ]) + ")";
-   });
- 
 });
+
 
 
 </script>
