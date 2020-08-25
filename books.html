@@ -144,10 +144,14 @@ path {
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
+	
+var nycity;
 
 // http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson
 d3.json("nyc.json", function(error, nyc) {
   if (error) throw error;
+
+  nycity = nyc;
 
   var path = d3.geoPath()
       .projection(d3.geoConicConformal()
@@ -189,14 +193,14 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
-      "$limit" : 101,
+      "$limit" : 102,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
       alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
     
-      var projection = d3.geoConicConformal().rotate([96, -39]);
+      var projection = d3.geoConicConformal().rotate([96, -39]).fitSize([width, height], nycity);
       var path = d3.geoPath().projection(projection);
       //.parallels([33, 45])
       //.rotate([96, -39])
