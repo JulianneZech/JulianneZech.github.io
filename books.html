@@ -172,6 +172,7 @@ d3.json("nyc.json", function(error, nyc) {
       .style("top", (d3.event.pageY) + "px")
       .text(d.properties.NTAName)
     })
+  
     .on("mouseleave", function(d) { 
       d3.select(this)
       .style("stroke-width", .25)
@@ -197,7 +198,7 @@ d3.json("nyc.json", function(error, nyc) {
 
       svg.selectAll(".dot")
         .data(data)
-        .enter().append("circle", ".pin")
+        .enter().append("circle", ".dot")
         .attr("r", 5)
         .attr("transform", function(d) {
           console.log(d.longitude)
