@@ -211,6 +211,7 @@ d3.json("nyc.json", function(error, nyc) {
 	        .enter()
 		.append("circle")
 	        .attr("class", "circles")
+	        .on("mouseenter", function(d) { console.log(d); }
 	  	.attr("r", "2px")
 		.attr("fill", "red")
 		.attr("cx", function (d) { console.log("long"); console.log(d.longitude); console.log(projection([d.longitude, d.latitude])[0]); return projection([d.longitude, d.latitude])[0]; })
