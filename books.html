@@ -193,7 +193,7 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
-      "$limit" : 102,
+      "$limit" : 6,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
@@ -214,7 +214,7 @@ d3.json("nyc.json", function(error, nyc) {
 		.data(data)
 	        .enter()
 		.append("circle")
-	  	.on("mouseenter", function(d) { alert(d); })
+	  	.on("mouseenter", function(d) { alert(d.dba); })
 	        .attr("class", "circles")
 	  	.attr("r", "2px")
 		.attr("fill", "red")
