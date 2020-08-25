@@ -195,6 +195,11 @@ d3.json("nyc.json", function(error, nyc) {
     }).done(function(data) {
       alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
+    
+      var projection = d3.geoConicConformal()
+      .parallels([33, 45])
+      .rotate([96, -39])
+      .fitSize([width, height], nyc));
 
       svg.selectAll(".dot")
         .data(data)
