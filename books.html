@@ -196,10 +196,10 @@ d3.json("nyc.json", function(error, nyc) {
       alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
     
-      var projection = d3.geoConicConformal();
-      //.parallels([33, 45])
-      //.rotate([96, -39])
-      //.fitSize([width, height], "nyc.json");
+      var projection = d3.geoConicConformal()
+      .parallels([33, 45])
+      .rotate([96, -39])
+      .fitSize([width, height], "nyc.json");
     
       //var path = d3.geo.path()
       //.projection(projection);
@@ -208,7 +208,7 @@ d3.json("nyc.json", function(error, nyc) {
     svg.selectAll("circle")
 		.data(data).enter()
 		.append("circle")
-		.attr("cx", function (d) { console.log("long"); console.log(d.longitude); console.log(projection(d.longitude)); return d.longitude; })
+		.attr("cx", function (d) { console.log("long"); console.log(d.longitude); console.log(projection(d.longitude)); return projection(d.longitude); })
 		.attr("cy", function (d) { console.log("lat"); console.log(d.latitude); console.log(projection(d.latitude)); return projection(d.latitude); })
 		.attr("r", "8px")
 		.attr("fill", "red")
