@@ -150,7 +150,6 @@ d3.json("nyc.json", function(error, nyc) {
       .style("stroke-width", 1.5)
       .style("stroke-dasharray", 0)
 
-
       d3.select("#neighborhoodPopover")
       .transition()
       .style("opacity", 1)
@@ -181,17 +180,19 @@ $.ajax({
     }
 }).done(function(data) {
   alert("Retrieved " + data.length + " records from the dataset!");
+  console.log(data);
 
-  var projection = d3.geo.albersUsa();
-  svg.append("circle").attr("r",5).attr("transform", function() {return "translate(" + projection([-75,43]) + ")";});
+  //var projection = d3.geo.albersUsa();
+  //svg.append("circle").attr("r",5).attr("transform", function() {return "translate(" + projection([-75,43]) + ")";});
 
-  svg.selectAll("circles.points")
+  svg.selectAll("circles")
   .data(data)
   .enter()
   .append("circle")
   .attr("r",5)
   .attr("transform", function(d) {return "translate(" + projection([d.long,d.lat]) + ")";});
 });
+
 </script>
 </body>
   
