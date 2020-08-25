@@ -202,16 +202,18 @@ $.ajax({
       .rotate([96, -39])
       .fitSize([width, height], nyc));
   
- svg.selectAll(".dot")
-  .data(data)
-  .enter().append("circle", ".pin")
-  .attr("r", 5)
-  .attr("transform", function(d) {
-    return "translate(" + projection([
-      d.longitude,
-      d.latitude
-    ]) + ")";
-  });
+   svg.selectAll(".dot")
+    .data(data)
+    .enter().append("circle", ".pin")
+    .attr("r", 5)
+    .attr("transform", function(d) {
+      return "translate(" + projection([
+        d.longitude,
+        d.latitude
+      ]) + ")";
+   });
+ 
+});
 
 
 </script>
