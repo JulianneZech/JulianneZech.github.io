@@ -181,10 +181,10 @@ $.ajax({
   console.log(data);
 
   //var projection = d3.geo.albersUsa();
-  svg.append("circle").attr("r",5).attr("transform", function() {return "translate(" + projection([-75,43]) + ")";});
+  //svg.append("circle").attr("r",5).attr("transform", function() {return "translate(" + projection([-75,43]) + ")";});
 
-  svg.selectAll("circles")
-  .data(data)
+  svg.selectAll("circle")
+  .data(data.features)
   .enter()
   .append("circle")
   .attr("r",5)
