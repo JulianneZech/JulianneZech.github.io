@@ -189,7 +189,7 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
-      "$limit" : 100,
+      "$limit" : 101,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
@@ -205,7 +205,7 @@ d3.json("nyc.json", function(error, nyc) {
       //var path = d3.geo.path()
       //.projection(projection);
     
-          // add circles to svg
+    // add circles to svg
     svg.selectAll("circle")
 		.data(data)
 	        .enter()
