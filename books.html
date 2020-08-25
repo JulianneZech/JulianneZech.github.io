@@ -171,7 +171,6 @@ d3.json("nyc.json", function(error, nyc) {
       .style("left", (d3.event.pageX) + "px")
       .style("top", (d3.event.pageY) + "px")
       .text(d.properties.NTAName)
-
     })
     .on("mouseleave", function(d) { 
       d3.select(this)
@@ -193,7 +192,7 @@ $.ajax({
       "$limit" : 20000,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
-}).done(function(data) {
+).done(function(data) {
   alert("Retrieved " + data.length + " records from the dataset!");
   console.log(data);
 
