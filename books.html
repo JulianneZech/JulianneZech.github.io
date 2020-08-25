@@ -182,7 +182,7 @@ d3.json("nyc.json", function(error, nyc) {
       .style("opacity", 100);
     });
 
-    console.log(nyc);
+  console.log(nyc);
   
   $.ajax({
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
@@ -195,13 +195,7 @@ d3.json("nyc.json", function(error, nyc) {
       alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
 
-      var path = d3.geoPath()
-          .projection(d3.geoConicConformal()
-          .parallels([33, 45])
-          .rotate([96, -39])
-          .fitSize([width, height], nyc));
-
-       svg.selectAll(".dot")
+      svg.selectAll(".dot")
         .data(data)
         .enter().append("circle", ".pin")
         .attr("r", 5)
