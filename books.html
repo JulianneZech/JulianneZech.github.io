@@ -190,7 +190,7 @@ $.ajax({
   .enter()
   .append("circle")
   .attr("r",5)
-  .attr("transform", function(d) {return "translate(" + projection([d.long,d.lat]) + ")";});
+  .attr("transform", function(d) {return "translate(" + projection([d.longitude, d.latitude]) + ")";});
 });
 
 </script>
