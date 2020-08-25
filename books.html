@@ -180,16 +180,23 @@ $.ajax({
   alert("Retrieved " + data.length + " records from the dataset!");
   console.log(data);
 
-  //var projection = d3.geo.albersUsa();
-  //svg.append("circle").attr("r",5).attr("transform", function() {return "translate(" + projection([-75,43]) + ")";});
+  var path = d3.geoPath()
+      .projection(d3.geoConicConformal()
+      .parallels([33, 45])
+      .rotate([96, -39])
+      .fitSize([width, height], nyc));
+  
+ svg.selectAll(".pin")
+  .data(data)
+  .enter().append("circle", ".pin")
+  .attr("r", 5)
+  .attr("transform", function(d) {
+    return "translate(" + projection([
+      d.longitude,
+      d.latitude
+    ]) + ")";
+  });
 
-  svg.selectAll("circle")
-  .data(data.features)
-  .enter()
-  .append("circle")
-  .attr("r",5)
-  .attr("transform", function(d) {return "translate(" + projection([d.longitude, d.latitude]) + ")";});
-});
 
 </script>
 </body>
