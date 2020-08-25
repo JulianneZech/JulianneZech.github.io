@@ -199,14 +199,14 @@ d3.json("nyc.json", function(error, nyc) {
       var projection = d3.geoConicConformal()
       .parallels([33, 45])
       .rotate([96, -39])
-      .fitSize([width, height], nyc));
+      .fitSize([width, height], "nyc.json"));
 
       svg.selectAll(".dot")
         .data(data)
         .enter().append("circle", ".dot")
         .attr("r", 5)
         .attr("transform", function(d) {
-          console.log(d.longitude)
+          console.log(d.longitude);
           return "translate(" + projection([
             d.longitude,
             d.latitude
