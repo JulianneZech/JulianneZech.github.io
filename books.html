@@ -217,14 +217,14 @@ d3.json("nyc.json", function(error, nyc) {
      var dropDown = d3.select("body").append("select")
                       .attr("name", "name-list");
 	  
-     var nest = d3.nest()
-     .key(function(d) { return d.cuisine_description; })
-     .entries(data);
+     var unique = d3.set(data, function(d) {return d.cuisine_description});
 	  
      var options = dropDown.selectAll("option")
-     .data(nest).keys())
+     .data(unique)
      .enter()
      .append("option");
+
+      console.log(unique);
 	  
       options.text(function(d) {
 	return d.key;
