@@ -227,10 +227,10 @@ d3.json("nyc.json", function(error, nyc) {
       console.log(unique);
 	  
       options.text(function(d) {
-	return d.key;
+	return d;
       })
       .attr("value", function(d) {
-	return d.key;
+	return d;
       });
 	  
     });
