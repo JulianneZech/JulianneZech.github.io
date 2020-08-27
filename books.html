@@ -224,14 +224,14 @@ d3.json("nyc.json", function(error, nyc) {
      .enter()
      .append("option");
 
+      console.log("unique");
       console.log(unique);
 	  
       options.text(function(d) {
 	return d;
       })
       .attr("value", function(d) {
-	console.log("unique");
-	console.log(unique);
+	console.log(d);
 	return d;
       });
 	  
