@@ -218,7 +218,7 @@ d3.json("nyc.json", function(error, nyc) {
                       .attr("name", "name-list");
 	  
      var options = dropDown.selectAll("option")
-     .data(data)
+     .data(d3.map(data, function(d){return d.roadname;}).keys())
      .enter()
      .append("option");
 	  
