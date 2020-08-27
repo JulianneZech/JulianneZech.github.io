@@ -217,39 +217,28 @@ d3.json("nyc.json", function(error, nyc) {
      var dropDown = d3.select("body").append("select")
                       .attr("name", "name-list");
 	  
+     var nest = d3.nest()
+     .key(function(d) { return d.cuisine_description; })
+     .entries(data);
+	  
      var options = dropDown.selectAll("option")
-     .data(d3.map(data, function(d){return d.roadname;}).keys())
+     .data(nest).keys())
      .enter()
      .append("option");
 	  
       options.text(function(d) {
-	return d.cuisine_description;
+	return d.key;
       })
       .attr("value", function(d) {
-	return d.cuisine_description;
+	return d.key;
       });
 	  
     });
 
 });
-	
-	//return projection(d.latitude)
 
-//<!--
-// svg.selectAll(".dot")
-//        .data(data)
-//        .enter().append("circle", ".dot")
-//        .attr("r", 5)
- //       .attr("transform", function(d) {
-//          return "translate(" + projection([
-//            d.longitude,
-////            d.latitude
-//          ]) + ")";
-//       });
-//  -->
 
 </script>
-</body>
   
 
 {% include footer.html %}
