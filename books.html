@@ -225,11 +225,15 @@ d3.json("nyc.json", function(error, nyc) {
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
 	  
-     var sorted = unique_values.sort(function(x) {
+     /*var sorted = unique_values.sort(function(x) {
 	console.log("sorted ascending");
 	console.log(d3.ascending(x));
         return d3.ascending(x);
-     })
+     })*/
+	
+     var sorted = unique_values.sort();
+     console.log("sorted");
+     console.log(sorted);
 	  
      var options = dropDown.selectAll("option")
      .data(unique_values)
