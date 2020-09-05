@@ -244,7 +244,7 @@ d3.json("nyc.json", function(error, nyc) {
       // A function that update the color of the circle
       function updateChart(cuisineType) {
 
-	  var dataToPlot = data.filter(function(d) {return d.cuisine_description=cuisineType;})
+	  var dataToPlot = data.filter(function(d) {return d.cuisine_description == cuisineType;})
 	  console.log("dataToPlot");
 	  console.log(dataToPlot);
 	      
