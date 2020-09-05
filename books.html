@@ -248,12 +248,6 @@ d3.json("nyc.json", function(error, nyc) {
 	  console.log("dataToPlot");
 	  console.log(dataToPlot);
 	  
-	  d3.select("*").remove();
-	  //svg.selectAll("circle").data(data).exit().remove();
-	      
-	  svg.selectAll("*").remove();
-	  d3.select("*").select("svg").remove();
-	      
      	  svg.selectAll("circle")
 		.data(dataToPlot)
 	        .enter()
@@ -280,6 +274,13 @@ d3.json("nyc.json", function(error, nyc) {
 	    var selectedOption = d3.select(this).property("value");
 	    console.log("selectedOption");
 	    console.log(selectedOption);
+	      
+	    d3.select("circle").selectAll("svg").remove();
+	    d3.select("*").remove();
+	    svg.selectAll("circle").data(data).exit().remove();
+	    svg.selectAll("*").remove();
+	    d3.select("*").select("svg").remove();
+	    d3.selectAll('svg').remove(); 
 
 	    // run the updateChart function with this selected option
 	    updateChart(selectedOption);
