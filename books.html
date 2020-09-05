@@ -223,9 +223,10 @@ d3.json("nyc.json", function(error, nyc) {
                       .attr("name", "name-list");
 	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
+     var unique2 = d3.set(unique).values;
 	  
      var options = dropDown.selectAll("option")
-     .data(unique)
+     .data(unique2)
      .enter()
      .append("option");
 
