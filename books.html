@@ -259,14 +259,6 @@ d3.json("nyc.json", function(error, nyc) {
 	  				 } return null;					  
 					 })
       }
-	  
-	  function(d){ 
-                    // set the dasharray if condition null means no attr
-                    if (d.num === "Stage 1"){
-                      return ("10,3") 
-                    } 
-                    return null;
-                  }) ;
 
 	// When the button is changed, run the updateChart function
       dropDown.on("change", function(d) {
