@@ -248,9 +248,14 @@ d3.json("nyc.json", function(error, nyc) {
 	  console.log("dataToPlot");
 	  console.log(dataToPlot);
 	  
-     	  svg.selectAll("circle")
-		.data(dataToPlot)
-	        .enter()
+	  var circles = svg.selectAll(".markers").data(dataToPlot);
+	  
+     	  //svg.selectAll("circle")
+		//.data(dataToPlot)
+	        //.enter()
+	        circles.
+	        .transition
+	        .duration(1000)
 		.append("circle")
 	        .attr("class", "circles")
 	  	.attr("r", "2px")
@@ -265,6 +270,7 @@ d3.json("nyc.json", function(error, nyc) {
 		  				return projection([d.longitude, d.latitude])[1]; 
 	  				 } return null;					  
 					 }) --> */
+	       circles.exit().remove();
       }
 
 	// When the button is changed, run the updateChart function
@@ -278,14 +284,14 @@ d3.json("nyc.json", function(error, nyc) {
 	    //d3.select("circle").selectAll("svg").remove();
 	    //d3.select("*").remove();
 	    //svg.selectAll("circle").data(data).exit().remove();
-	     svg.selectAll("circles").remove();
+	    // svg.selectAll("circles").remove();
 	    //svg.select("circle").exit().remove();
 	    //svg.select("circles").exit().remove();
 	    //svg.select("circles").remove();
 	    //svg.select("circle").remove();
 	    //d3.select("*").select("svg").remove();
 	    //d3.selectAll('svg').remove(); 
-	     svg.selectAll('circles').exit().remove();
+	     //svg.selectAll('circles').exit().remove();
 
 	    // run the updateChart function with this selected option
 	    updateChart(selectedOption);
