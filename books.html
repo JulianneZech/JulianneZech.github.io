@@ -249,8 +249,8 @@ d3.json("nyc.json", function(error, nyc) {
 	        .attr("class", "circles")
 	  	.attr("r", "2px")
 		.attr("fill", "black")
-		.attr("cx", function (d) { return projection([d.longitude, d.latitude])[0] if d.cuisine_description=cuisineType; })
-		.attr("cy", function (d) { return projection([d.longitude, d.latitude])[1] if d.cuisine_description=cuisineType; })
+		.attr("cx", function (d) { if d.cuisine_description=cuisineType return projection([d.longitude, d.latitude])[0]; })
+		.attr("cy", function (d) { if d.cuisine_description=cuisineType return projection([d.longitude, d.latitude])[1]; })
       }
 
 	// When the button is changed, run the updateChart function
