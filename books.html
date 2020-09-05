@@ -248,7 +248,8 @@ d3.json("nyc.json", function(error, nyc) {
 	  console.log("dataToPlot");
 	  console.log(dataToPlot);
 	  
-	  d3.select("circle").remove();  
+	  //d3.select("circle").remove();
+	  svg.selectAll("circle").data(data).exit().remove();
 	      
      	  svg.selectAll("circle")
 		.data(dataToPlot)
