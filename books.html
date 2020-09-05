@@ -250,18 +250,34 @@ d3.json("nyc.json", function(error, nyc) {
 	        .attr("class", "circles")
 	  	.attr("r", "2px")
 		.attr("fill", "black")
-		.attr("cx", function (d) { if (d.cuisine_description=cuisineType) return projection([d.longitude, d.latitude])[0]; })
-		.attr("cy", function (d) { if (d.cuisine_description=cuisineType) return projection([d.longitude, d.latitude])[1]; })
+		.attr("cx", function (d) { if (d.cuisine_description=cuisineType) {
+		  				return projection([d.longitude, d.latitude])[0]; 
+	  				 } return null;
+					 })
+		.attr("cy", function (d) { if (d.cuisine_description=cuisineType) {
+		  				return projection([d.longitude, d.latitude])[1]; 
+	  				 } return null;					  
+					 })
       }
+	  
+	  function(d){ 
+                    // set the dasharray if condition null means no attr
+                    if (d.num === "Stage 1"){
+                      return ("10,3") 
+                    } 
+                    return null;
+                  }) ;
 
 	// When the button is changed, run the updateChart function
-      dropdownButton.on("change", function(d) {
+      dropDown.on("change", function(d) {
 
 	    // recover the option that has been chosen
-	    var selectedOption = d3.select(this).property("value")
+	    var selectedOption = d3.select(this).property("value");
+	    console.log("selectedOption");
+	    console.log(selectedOption);
 
 	    // run the updateChart function with this selected option
-	    updateChart(selectedOption)
+	    updateChart(selectedOption);
       })
 	  
       options.text(function(d) {
