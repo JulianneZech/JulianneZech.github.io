@@ -198,7 +198,7 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
-      "$limit" : 6004,
+      "$limit" : 6005,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
@@ -247,6 +247,8 @@ d3.json("nyc.json", function(error, nyc) {
 	  var dataToPlot = data.filter(function(d) {return d.cuisine_description == cuisineType;})
 	  console.log("dataToPlot");
 	  console.log(dataToPlot);
+	  
+	  d3.select("circle").remove();  
 	      
      	  svg.selectAll("circle")
 		.data(dataToPlot)
