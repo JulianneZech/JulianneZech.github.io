@@ -226,11 +226,12 @@ d3.json("nyc.json", function(error, nyc) {
      var unique_values = d3.set(unique).values();
 	  
      var sorted = unique_values.sort(function(x) {
+	console.log(d3.ascending(x));
         return d3.ascending(x);
      })
 	  
      var options = dropDown.selectAll("option")
-     .data(sorted)
+     .data(unique_values)
      .enter()
      .append("option");
 
