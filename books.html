@@ -279,6 +279,10 @@ d3.json("nyc.json", function(error, nyc) {
 	    d3.select("*").remove();
 	    svg.selectAll("circle").data(data).exit().remove();
 	    svg.selectAll("*").remove();
+	    svg.select("circle").exit().remove();
+	    svg.select("circles").exit().remove();
+	    svg.select("circles").remove();
+	    svg.select("circle").remove();
 	    d3.select("*").select("svg").remove();
 	    d3.selectAll('svg').remove(); 
 
