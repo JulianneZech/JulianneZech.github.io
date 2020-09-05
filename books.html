@@ -248,12 +248,12 @@ d3.json("nyc.json", function(error, nyc) {
 	  console.log("dataToPlot");
 	  console.log(dataToPlot);
 	  
-	  var circles = svg.selectAll(".markers").data(dataToPlot);
+	  var circles = svg.selectAll("circles").data(dataToPlot);
 	  
      	  //svg.selectAll("circle")
 		//.data(dataToPlot)
 	        //.enter()
-	        circles.
+	        circles
 	        .transition
 	        .duration(1000)
 		.append("circle")
