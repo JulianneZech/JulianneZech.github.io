@@ -198,7 +198,7 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
-      "$limit" : 6001,
+      "$limit" : 6002,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
@@ -225,12 +225,12 @@ d3.json("nyc.json", function(error, nyc) {
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
 	  
-     unique_values.sort(function(x) {
+     var sorted = unique_values.sort(function(x) {
         return d3.ascending(x);
      })
 	  
      var options = dropDown.selectAll("option")
-     .data(unique_values)
+     .data(sorted)
      .enter()
      .append("option");
 
@@ -239,6 +239,29 @@ d3.json("nyc.json", function(error, nyc) {
 	  
       console.log("unique_values");
       console.log(unique_values);
+
+      // A function that update the color of the circle
+      function updateChart(cuisineType) {
+     	  svg.selectAll("circle")
+		.data(data)
+	        .enter()
+		.append("circle")
+	        .attr("class", "circles")
+	  	.attr("r", "2px")
+		.attr("fill", "black")
+		.attr("cx", function (d) { return projection([d.longitude, d.latitude])[0] if d.cuisine_description=cuisineType; })
+		.attr("cy", function (d) { return projection([d.longitude, d.latitude])[1] if d.cuisine_description=cuisineType; })
+      }
+
+	// When the button is changed, run the updateChart function
+      dropdownButton.on("change", function(d) {
+
+	    // recover the option that has been chosen
+	    var selectedOption = d3.select(this).property("value")
+
+	    // run the updateChart function with this selected option
+	    updateChart(selectedOption)
+      })
 	  
       options.text(function(d) {
 	return d;
