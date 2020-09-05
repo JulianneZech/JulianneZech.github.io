@@ -198,7 +198,7 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
-      "$limit" : 6000,
+      "$limit" : 6001,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
@@ -223,18 +223,22 @@ d3.json("nyc.json", function(error, nyc) {
                       .attr("name", "name-list");
 	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
-     var unique2 = d3.set(unique).values();
+     var unique_values = d3.set(unique).values();
+	  
+     unique_values.sort(function(x) {
+        return d3.ascending(x.index);
+     })
 	  
      var options = dropDown.selectAll("option")
-     .data(unique2)
+     .data(unique_values)
      .enter()
      .append("option");
 
       console.log("unique");
       console.log(unique);
 	  
-      console.log("unique2");
-      console.log(unique2);
+      console.log("unique_values");
+      console.log(unique_values);
 	  
       options.text(function(d) {
 	return d;
