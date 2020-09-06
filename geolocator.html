@@ -226,12 +226,10 @@ d3.json("nyc.json", function(error, nyc) {
 
 		  //var dataToPlot = data.filter(function(d) {return d.cuisine_description == cuisineType;})
 		    
-		    // https://www.geeksforgeeks.org/how-to-convert-string-to-camel-case-in-javascript/
-		    function camelCase(str) { 
-		    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) 
-		    { 
-			return index == 0 ? word.toLowerCase() : word.toUpperCase(); 
-		    }).replace(/\s+/g, ''); 
+		    // https://www.w3resource.com/javascript-exercises/javascript-string-exercise-9.php
+		    function capitalize(str) { 
+			return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+		    }
 		} 
 
 		  svg.selectAll("circle")
@@ -254,7 +252,7 @@ d3.json("nyc.json", function(error, nyc) {
 			      .style("opacity", 1)
 			      .style("left", (d3.event.pageX) + "px")
 			      .style("top", (d3.event.pageY) + "px")
-			      .text(camelCase(d.dba))
+			      .text(capitalize(d.dba))
 				console.log("dba");
 				console.log(d.dba);
 				console.log(this);
