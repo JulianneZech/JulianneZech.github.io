@@ -28,8 +28,7 @@
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="sitescripts.js"></script> -->
-  <svg width="960" height="720"></svg>
-  <div id='neighborhoodPopover'> </div>
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/topojson.v1.min.js"></script>
 	
@@ -119,6 +118,10 @@ path {
 	
 <body>
 
+<svg width="1440" height="1080"></svg>
+  <!-- <svg width="960" height="720"></svg> -->
+       <!-- <div id='neighborhoodPopover'> </div> -->
+
 <script>
 
 var svg = d3.select("svg"),
@@ -136,7 +139,7 @@ d3.json("nyc.json", function(error, nyc) {
   var path = d3.geoPath()
       .projection(d3.geoConicConformal()
       .parallels([33, 45])
-      //.rotate([96, -39])
+      .rotate([96, -39])
       .fitSize([width, height], nyc));
 
   svg.selectAll("path")
@@ -181,7 +184,7 @@ d3.json("nyc.json", function(error, nyc) {
       console.log(data);
     
      var projection = d3.geoConicConformal()
-     			//.rotate([96, -39])
+     			.rotate([96, -39])
      			.fitSize([width, height], nycity);
      var path = d3.geoPath().projection(projection);
 	  
@@ -240,7 +243,7 @@ d3.json("nyc.json", function(error, nyc) {
 			.enter()
 			.append("circle")
 			.attr("class", "circles")
-			.attr("r", "1.5px")
+			.attr("r", "1px")
 			.attr("fill", "black")
 			.attr("cx", function (d) { return projection([d.longitude, d.latitude])[0]; })
 			.attr("cy", function (d) { return projection([d.longitude, d.latitude])[1]; })
@@ -248,6 +251,8 @@ d3.json("nyc.json", function(error, nyc) {
 			      d3.select(this)
 			      .style("stroke-width", 1.5)
 			      .style("stroke-dasharray", 0)
+			      .attr("r", "3px")
+			      .attr("fill", "blue")
 
 			      d3.select("#neighborhoodPopover")
 			      .transition()
