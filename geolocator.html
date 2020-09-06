@@ -108,7 +108,8 @@ path {
 
   <!-- <svg width="1440" height="1080"></svg> -->
 <svg width="960" height="720"></svg> 
-        <div id='neighborhoodPopover'> </div>
+<div id='neighborhoodPopover'> </div>
+<div id='dropDown'> </div>
 
 <script>
 
@@ -179,7 +180,7 @@ d3.json("nyc.json", function(error, nyc) {
      //$("#cuisineselector").prepend("<option value=''></option>").val('');
      $(document).ready(function(){
 	     
-	     var dropDown = d3.select("body").append("select")
+	     var dropDown = d3.select("dropDown").append("select")
                       .attr("name", "name-list")
                       .attr("id", "cuisinepicker");
 	  
