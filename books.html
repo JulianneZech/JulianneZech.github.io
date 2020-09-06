@@ -207,6 +207,7 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
+      "$where": cuisine_description == "Afghan",
       "$limit" : 10000000,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
@@ -217,7 +218,7 @@ d3.json("nyc.json", function(error, nyc) {
      var projection = d3.geoConicConformal().rotate([96, -39]).fitSize([width, height], nycity);
      var path = d3.geoPath().projection(projection);
 	  
-     var dropDown = d3.selectpicker("body").append("select")
+     var dropDown = d3.dropdown("body").append("select")
                       .attr("name", "name-list");
 	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
