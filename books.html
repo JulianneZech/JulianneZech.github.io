@@ -223,16 +223,20 @@ d3.json("nyc.json", function(error, nyc) {
 	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
-     unique_values.prepend("Select a cuisine type");
+     //$('unique_values').prepend('<option value="">');
+     //unique_values.prepend("Select a cuisine type");
 	
      var sorted = unique_values.sort();
 	  
      var options = dropDown.selectAll("option")
+     .attr("id", "cuisineselector")
      .data(unique_values)
      .enter()
      .append("option");
       
-      $("").prop("selectedIndex", -1);
+     options.prop("selectedIndex", -1);
+     $('cuisineselector').prepend('<option value="">');
+	  
       // A function that update the color of the circle
       function updateChart(cuisineType) {
 
