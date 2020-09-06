@@ -89,6 +89,8 @@ path {
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
+$.fn.selectpicker.Constructor.BootstrapVersion = '3';
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
@@ -183,10 +185,12 @@ d3.json("nyc.json", function(error, nyc) {
      //$("#cuisineselector").prepend("<option value=''></option>").val('');
      $("#cuisinepicker").selectpicker({
         noneSelectedText : 'Select a Cuisine Type',
+	liveSearch : true,
 	//showContent : false,
 	showTick: true
     });
 	  
+    ("#cuisinepicker").selectpicker.refresh();
 	  
       // A function that update the color of the circle
       function updateChart(cuisineType) {
@@ -228,6 +232,8 @@ d3.json("nyc.json", function(error, nyc) {
 		      .transition()
 		      .style("opacity", 100);
     		});
+	      
+
       } // end updateChart
 	  
 	  
