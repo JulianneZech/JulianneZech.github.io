@@ -198,12 +198,14 @@ d3.json("nyc.json", function(error, nyc) {
      //options.prop("selectedIndex", -1);
      //$('#cuisinepicker').prepend('<option value="">');
      //$("#cuisineselector").prepend("<option value=''></option>").val('');
-     $("#cuisinepicker").selectpicker({
-        noneSelectedText : 'Select a Cuisine Type',
-	liveSearch : true,
-	//showContent : false,
-	//showTick: true
-    });
+     $(document).ready(function(){
+	     $("#cuisinepicker").selectpicker({
+		noneSelectedText : 'Select a Cuisine Type',
+		liveSearch : true,
+		//showContent : false,
+		showTick: true
+	    });
+     });
 	  
     //("#cuisinepicker").selectpicker.refresh();
 	  
