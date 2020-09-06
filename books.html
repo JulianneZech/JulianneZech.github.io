@@ -208,7 +208,7 @@ d3.json("nyc.json", function(error, nyc) {
     type: "GET",
     data: {
       cuisine_description : 'Afghan',
-      "$limit" : 10,
+      "$limit" : 50000000,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
@@ -223,6 +223,7 @@ d3.json("nyc.json", function(error, nyc) {
 	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
+     unique_values.prepend("Select a cuisine type");
 	
      var sorted = unique_values.sort();
 	  
@@ -230,7 +231,8 @@ d3.json("nyc.json", function(error, nyc) {
      .data(unique_values)
      .enter()
      .append("option");
-	  
+      
+      $("").prop("selectedIndex", -1);
       // A function that update the color of the circle
       function updateChart(cuisineType) {
 
