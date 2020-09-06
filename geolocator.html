@@ -179,21 +179,21 @@ d3.json("nyc.json", function(error, nyc) {
 	      .attr("name", "name-list")
 	      .attr("id", "cuisinepicker")
               .attr("visibility", "hidden");
+	  	  
+     var unique = d3.set(data, function(d) {return d.cuisine_description});
+     var unique_values = d3.set(unique).values();
+     var sorted = unique_values.sort();
+
+     var options = dropDown.selectAll("option")
+			   .attr("id", "cuisineselector")
+			   .data(unique_values)
+			   .enter()
+			   .append("option");
       
      //options.prop("selectedIndex", -1);
      //$('#cuisinepicker').prepend('<option value="">');
      //$("#cuisineselector").prepend("<option value=''></option>").val('');
      $(document).ready(function(){
-	  
-	     var unique = d3.set(data, function(d) {return d.cuisine_description});
-	     var unique_values = d3.set(unique).values();
-	     var sorted = unique_values.sort();
-
-	     var options = dropDown.selectAll("option")
-				   .attr("id", "cuisineselector")
-				   .data(unique_values)
-				   .enter()
-				   .append("option");
 
 	     $("#cuisinepicker").selectpicker({
 		noneSelectedText : 'Select a Cuisine Type',
