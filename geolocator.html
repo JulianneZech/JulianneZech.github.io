@@ -228,15 +228,13 @@ d3.json("nyc.json", function(error, nyc) {
 	      "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
 	    }
 	    }).done(function(data) {
-
-		  //var dataToPlot = data.filter(function(d) {return d.cuisine_description == cuisineType;})
 		    
 		    // https://www.w3resource.com/javascript-exercises/javascript-string-exercise-9.php
 		    function capitalize(str) { 
 			return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 		    }
 
-		  svg.selectAll("circle")
+		    svg.selectAll("circle")
 			//.data(dataToPlot)
 		        .data(data)
 			.enter()
