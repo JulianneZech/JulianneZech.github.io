@@ -236,9 +236,11 @@ d3.json("nyc.json", function(error, nyc) {
      .append("option");
       
      //options.prop("selectedIndex", -1);
-     $('#cuisinepicker').prepend('<option value="">');
+     //$('#cuisinepicker').prepend('<option value="">');
      //$("#cuisineselector").prepend("<option value=''></option>").val('');
-     $("#cuisinepicker").selectpicker();
+     $("#cuisinepicker").selectpicker({
+        noneSelectedText : 'Select a Cuisine Type' // 
+    }).refresh();
 	  
 	  
       // A function that update the color of the circle
