@@ -225,6 +225,14 @@ d3.json("nyc.json", function(error, nyc) {
 	    }).done(function(data) {
 
 		  //var dataToPlot = data.filter(function(d) {return d.cuisine_description == cuisineType;})
+		    
+		    // https://www.geeksforgeeks.org/how-to-convert-string-to-camel-case-in-javascript/
+		    function camelCase(str) { 
+		    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) 
+		    { 
+			return index == 0 ? word.toLowerCase() : word.toUpperCase(); 
+		    }).replace(/\s+/g, ''); 
+		} 
 
 		  svg.selectAll("circle")
 			//.data(dataToPlot)
@@ -246,21 +254,21 @@ d3.json("nyc.json", function(error, nyc) {
 			      .style("opacity", 1)
 			      .style("left", (d3.event.pageX) + "px")
 			      .style("top", (d3.event.pageY) + "px")
-			      .text(toLowerCase(d.dba))
+			      .text(camelCase(d.dba))
 				console.log("dba");
 				console.log(d.dba);
 				console.log(this);
 			})
 
-			    .on("mouseleave", function(d) { 
-			      d3.select(this)
-			      .style("stroke-width", .25)
-			      .style("stroke-dasharray", 1)
+		       .on("mouseleave", function(d) { 
+		         d3.select(this)
+		           .style("stroke-width", .25)
+		           .style("stroke-dasharray", 1)
 
-			      d3.select("#cneighborhoodPopoverountyText")
-			      .transition()
-			      .style("opacity", 100);
-			});
+		        d3.select("#cneighborhoodPopoverountyText")
+		          .transition()
+		          .style("opacity", 100);
+		      });
 	    })
 
       } // end updateChart
@@ -278,6 +286,7 @@ d3.json("nyc.json", function(error, nyc) {
 	    // run the updateChart function with this selected option
 	    updateChart(selectedOption);
       })
+	 
 	  
       options.text(function(d) {
 	return d;
