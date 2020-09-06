@@ -180,7 +180,6 @@ d3.json("nyc.json", function(error, nyc) {
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
-      alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
     
      var projection = d3.geoConicConformal()
@@ -235,7 +234,6 @@ d3.json("nyc.json", function(error, nyc) {
 		    function capitalize(str) { 
 			return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 		    }
-		
 
 		  svg.selectAll("circle")
 			//.data(dataToPlot)
@@ -299,7 +297,6 @@ d3.json("nyc.json", function(error, nyc) {
 	return d;
       })
       .attr("value", function(d) {
-	//console.log(d);
 	return d;
       });
 	  
