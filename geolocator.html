@@ -52,9 +52,6 @@
   
 </head>
 	
-<select class="cuisinepicker" data-style="btn-primary" data-width="auto">
-</select>
-	
 <style>
 
 
@@ -94,30 +91,23 @@ path {
   display: inline-block;
 }
  
-/* 1. Change color of the first option [Nothing selected] when select menu is closed? */
-.bootstrap-select.btn-group .dropdown-toggle[title="[Nothing selected]"] .filter-option {
-  color: red;
-}
-
-/* 2. Change color when there are chosen other select options when select menu is closed? */
-.bootstrap-select.btn-group .dropdown-toggle .filter-option {
-  color: blue;
-}
-
-/* 3. Change option's color when the select menu is opened? */
-.bootstrap-select.btn-group .dropdown-menu>li>a {
-  color: green;
-}
-
-/* 4. Change color when option on hover when select menu is opened? */
-.bootstrap-select.btn-group .dropdown-menu>li>a:hover:not(:focus) {
-  color: orange;
-}
-
-/* 5. Change background color of the whole select menu when is opened? */
-.bootstrap-select.btn-group .dropdown-menu {
-  background-color: yellow;
-}
+.bootstrap-select .btn {
+  background-color: white;
+  border-style: solid;
+  border-left-width: 3px;
+  border-left-color: #00DDDD;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  color: black;
+  font-weight: 200;
+  padding: 12px 12px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}	
 	
 </style>
 	
