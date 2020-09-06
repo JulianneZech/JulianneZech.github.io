@@ -95,6 +95,7 @@ path {
 }
  
 .bootstrap-select .btn {
+  position: absolute;
   background-color: white;
   border-style: solid;
   border-left-width: 3px;
@@ -245,7 +246,7 @@ d3.json("nyc.json", function(error, nyc) {
 			      .style("opacity", 1)
 			      .style("left", (d3.event.pageX) + "px")
 			      .style("bottom", (d3.event.pageY) + "px")
-			      .text(d.dba)
+			      .text(toLowerCase(d.dba))
 				console.log("dba");
 				console.log(d.dba);
 				console.log(this);
