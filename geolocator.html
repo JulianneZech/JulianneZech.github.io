@@ -5,87 +5,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<style>
-
-path {
-
-  stroke: #fff;
-  stroke-width: .5;
-  stroke-dasharray: 1;
-  fill: #afafaf;
-  
-}
-
-#neighborhoodPopover { 
-  position: absolute;     
-  text-align: center;         
-  padding: 2px;       
-  font: 12px sans-serif;    
-  background: #fff; 
-  border: 0px;    
-  border-radius: 8px;     
-  pointer-events: none;
-  opacity: 0;     
-}
-
-</style>
-
-<body>
-  <svg width="960" height="720"></svg>
-  <div id='neighborhoodPopover'> </div>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/topojson.v1.min.js"></script>
-<script>
-
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
-
-// http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson
-d3.json("nyc.json", function(error, nyc) {
-  if (error) throw error;
-
-  var path = d3.geoPath()
-      .projection(d3.geoConicConformal()
-      .parallels([33, 45])
-      .rotate([96, -39])
-      .fitSize([width, height], nyc));
-
-  svg.selectAll("path")
-      .data(nyc.features)
-      .enter().append("path")
-      .attr("d", path)
-      .on("mouseenter", function(d) {
-        console.log(d);
-      d3.select(this)
-      .style("stroke-width", 1.5)
-      .style("stroke-dasharray", 0)
-
-      d3.select("#neighborhoodPopover")
-      .transition()
-      .style("opacity", 1)
-      .style("left", (d3.event.pageX) + "px")
-      .style("top", (d3.event.pageY) + "px")
-      .text(d.properties.neighborhood)
-
-    })
-    .on("mouseleave", function(d) { 
-      d3.select(this)
-      .style("stroke-width", .25)
-      .style("stroke-dasharray", 1)
-
-      d3.select("#cneighborhoodPopoverountyText")
-      .transition()
-      .style("opacity", 0);
-    });
-
-    console.log(nyc);
-});
-
-</script>
-</body>
-
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -137,15 +56,16 @@ d3.json("nyc.json", function(error, nyc) {
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.css" />
 
 </head>
-	
+
 <style>
 
-
 path {
+
   stroke: #fff;
   stroke-width: .5;
   stroke-dasharray: 1;
   fill: #afafaf;
+  
 }
 
 #neighborhoodPopover { 
@@ -157,26 +77,9 @@ path {
   border: 0px;    
   border-radius: 8px;     
   pointer-events: none;
-  opacity: 0;   
+  opacity: 0;     
 }
-  
-.pin {
-  width: 720;
-  height: 120;
-  cx: 30;
-  cy: 60;
-  r: 5;
-  style: steelblue;  
-}
-  
-.dot {
-  height: 25px;
-  width: 25px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
- 
+
 .bootstrap-select .btn {
   position: absolute;
   background-color: white;
@@ -196,7 +99,7 @@ path {
   appearance: none;
   right: 10px;
   bottom: 450px;
-}	
+}
 	
 </style>
 	
@@ -204,7 +107,7 @@ path {
 
   <!-- <svg width="1440" height="1080"></svg> -->
 <svg width="960" height="720"></svg> 
-       <!-- <div id='neighborhoodPopover'> </div> -->
+        <div id='neighborhoodPopover'> </div>
 
 <script>
 
