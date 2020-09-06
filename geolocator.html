@@ -180,9 +180,9 @@ d3.json("nyc.json", function(error, nyc) {
      //$("#cuisineselector").prepend("<option value=''></option>").val('');
      $(document).ready(function(){
 	     
-	     var dropDown = d3.select("dropDown").append("select")
+	     var dropDown = d3.select("body").append("select")
                       .attr("name", "name-list")
-                      .attr("id", "cuisinepicker");
+                      .attr("id", "cuisinepicker").hide();
 	  
 	     var unique = d3.set(data, function(d) {return d.cuisine_description});
 	     var unique_values = d3.set(unique).values();
