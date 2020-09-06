@@ -219,7 +219,8 @@ d3.json("nyc.json", function(error, nyc) {
      var path = d3.geoPath().projection(projection);
 	  
      var dropDown = d3.select("body").append("select")
-                      .attr("name", "name-list");
+                      .attr("name", "name-list")
+                      .attr("id", "cuisinepicker");
 	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
@@ -235,9 +236,9 @@ d3.json("nyc.json", function(error, nyc) {
      .append("option");
       
      //options.prop("selectedIndex", -1);
-     $('#name-list').prepend('<option value="">');
+     $('#cuisinepicker').prepend('<option value="">');
      //$("#cuisineselector").prepend("<option value=''></option>").val('');
-     $("#name-list").selectpicker();
+     $("#cuisinepicker").selectpicker();
 	  
 	  
       // A function that update the color of the circle
