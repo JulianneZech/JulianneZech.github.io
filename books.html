@@ -207,7 +207,7 @@ d3.json("nyc.json", function(error, nyc) {
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
     type: "GET",
     data: {
-      "$where": "cuisine_description = Afghan",
+      "$where": "cuisine_description=Afghan",
       "$limit" : 10000000,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
