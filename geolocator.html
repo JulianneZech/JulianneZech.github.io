@@ -112,7 +112,7 @@ path {
   -moz-appearance: none;
   appearance: none;
   right: 10px;
-  bottom: 50px;
+  bottom: 450px;
 }	
 	
 </style>
@@ -136,7 +136,7 @@ d3.json("nyc.json", function(error, nyc) {
   var path = d3.geoPath()
       .projection(d3.geoConicConformal()
       .parallels([33, 45])
-      .rotate([96, -39])
+      //.rotate([96, -39])
       .fitSize([width, height], nyc));
 
   svg.selectAll("path")
@@ -173,14 +173,16 @@ d3.json("nyc.json", function(error, nyc) {
     type: "GET",
     data: {
       "$select": 'distinct cuisine_description',
-      "$limit" : 50000000,
+      "$limit" : 5000,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
       alert("Retrieved " + data.length + " records from the dataset!");
       console.log(data);
     
-     var projection = d3.geoConicConformal().rotate([96, -39]).fitSize([width, height], nycity);
+     var projection = d3.geoConicConformal()
+     			//.rotate([96, -39])
+     			.fitSize([width, height], nycity);
      var path = d3.geoPath().projection(projection);
 	  
      var dropDown = d3.select("body").append("select")
