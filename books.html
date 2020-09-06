@@ -234,8 +234,9 @@ d3.json("nyc.json", function(error, nyc) {
      .enter()
      .append("option");
       
-     options.prop("selectedIndex", -1);
-     $('cuisineselector').prepend('<option value="">');
+     //options.prop("selectedIndex", -1);
+     //$('cuisineselector').prepend('<option value="">');
+     $("cuisineselector").prepend("<option value=''></option>").val('');
 	  
       // A function that update the color of the circle
       function updateChart(cuisineType) {
