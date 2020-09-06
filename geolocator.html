@@ -197,10 +197,10 @@ d3.json("nyc.json", function(error, nyc) {
      var sorted = unique_values.sort();
 
      var options = dropDown.selectAll("option")
-     .attr("id", "cuisineselector")
-     .data(unique_values)
-     .enter()
-     .append("option");
+                           .attr("id", "cuisineselector")
+                           .data(unique_values)
+                           .enter()
+                           .append("option");
       
      //options.prop("selectedIndex", -1);
      //$('#cuisinepicker').prepend('<option value="">');
@@ -272,9 +272,9 @@ d3.json("nyc.json", function(error, nyc) {
 			   //.attr("r", "1px")
 			   //.attr("fill", "black")
 
-		        d3.select("#cneighborhoodPopoverountyText")
-		          .transition()
-		          .style("opacity", 100);
+		         d3.select("#cneighborhoodPopoverountyText")
+		           .transition()
+		           .style("opacity", 100);
 		      });
 	    })
 
