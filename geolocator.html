@@ -49,6 +49,10 @@
 
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script> 
+	
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.css" />
+
   
 </head>
 	
@@ -167,7 +171,6 @@ d3.json("nyc.json", function(error, nyc) {
     type: "GET",
     data: {
       "$select": 'distinct cuisine_description',
-      //cuisine_description : 'Afghan',
       "$limit" : 50000000,
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
@@ -184,13 +187,8 @@ d3.json("nyc.json", function(error, nyc) {
 	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
-     //$('unique_values').prepend('<option value="">');
-     //unique_values.prepend("Select a cuisine type");
-	
      var sorted = unique_values.sort();
-     console.log("sorted");
-     console.log(sorted);
-	  
+
      var options = dropDown.selectAll("option")
      .attr("id", "cuisineselector")
      .data(unique_values)
