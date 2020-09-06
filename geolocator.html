@@ -9,7 +9,7 @@
 <head>
   
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <!-- <link rel="stylesheet" href="style.css" type="text/css"/> -->
 
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -73,6 +73,7 @@ path {
   border: 0px;    
   border-radius: 8px;     
   pointer-events: none;
+  opacity: 0;   
 }
   
 .pin {
@@ -152,13 +153,12 @@ d3.json("nyc.json", function(error, nyc) {
 
 	      d3.select("#neighborhoodPopover")
 	      .transition()
-	      .style("opacity", 100)
+	      .style("opacity", 1)
 	      .style("left", (d3.event.pageX) + "px")
 	      .style("top", (d3.event.pageY) + "px")
 	      .text(d.properties.NTAName)
 	       console.log(d.properties.NTAName);
     })
-  
       .on("mouseleave", function(d) { 
 	      d3.select(this)
 	      .style("stroke-width", .25)
