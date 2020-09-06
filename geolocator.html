@@ -152,7 +152,7 @@ d3.json("nyc.json", function(error, nyc) {
 
 	      d3.select("#neighborhoodPopover")
 	      .transition()
-	      .style("opacity", 1)
+	      .style("opacity", 100)
 	      .style("left", (d3.event.pageX) + "px")
 	      .style("top", (d3.event.pageY) + "px")
 	      .text(d.properties.NTAName)
@@ -166,7 +166,7 @@ d3.json("nyc.json", function(error, nyc) {
 
 	      d3.select("#cneighborhoodPopoverountyText")
 	      .transition()
-	      .style("opacity", 100);
+	      .style("opacity", 0);
     });
 
   console.log(nyc);
@@ -252,7 +252,7 @@ d3.json("nyc.json", function(error, nyc) {
 
 			      d3.select("#neighborhoodPopover")
 			      .transition()
-			      .style("opacity", 1)
+			      .style("opacity", 100)
 			      .style("left", (d3.event.pageX) + "px")
 			      .style("top", (d3.event.pageY) + "px")
 			      .text(capitalize(d.dba))
@@ -270,7 +270,7 @@ d3.json("nyc.json", function(error, nyc) {
 
 		         d3.select("#cneighborhoodPopoverountyText")
 		           .transition()
-		           .style("opacity", 100);
+		           .style("opacity", 0);
 		      });
 	    })
 
