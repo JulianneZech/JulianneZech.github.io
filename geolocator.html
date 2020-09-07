@@ -90,6 +90,7 @@ path {
   border-top: 10px;
   border-bottom: none;
   border-right: none;
+  margin-top: -50%; /* for relative positioning */
   margin-bottom: 10px;
   font-weight: 200;
   padding: 12px 12px;
@@ -211,7 +212,7 @@ d3.json("nyc.json", function(error, nyc) {
      var path = d3.geoPath().projection(projection);
 
      var dropDown = d3.select("body").append("dropDownMenu").append("select")
-              .attr("visibility", "hidden")
+              .attr("visibility", "hidden !important;")
 	      .attr("name", "name-list")
 	      .attr("id", "cuisinepicker");
 	  	  
@@ -220,7 +221,7 @@ d3.json("nyc.json", function(error, nyc) {
      var sorted = unique_values.sort();
 
      var options = dropDown.selectAll("option")
-                           .attr("visibility", "hidden")
+                           .attr("visibility", "hidden !important")
 			   .attr("id", "cuisineselector")
 			   .data(unique_values)
 			   .enter()
