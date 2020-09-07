@@ -199,7 +199,7 @@ d3.json("nyc.json", function(error, nyc) {
 	     $("#cuisinepicker").selectpicker({
 		noneSelectedText : 'Select a Cuisine Type',
 		liveSearch : true,
-		//showContent : false,
+		showContent : false,
 		showTick: true
 	    });
      });
@@ -218,6 +218,8 @@ d3.json("nyc.json", function(error, nyc) {
 	      "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
 	    }
 	    }).done(function(data) {
+		    
+		    console.log(data);
 		    
 		    // https://www.w3resource.com/javascript-exercises/javascript-string-exercise-9.php
 		    function capitalize(str) { 
@@ -239,7 +241,6 @@ d3.json("nyc.json", function(error, nyc) {
 			      .style("stroke-width", 1.5)
 			      .style("stroke-dasharray", 0)
 			      .attr("r", "3px")
-			      //.attr("fill", "blue")
 
 			      d3.select("#neighborhoodPopover")
 			      .transition()
