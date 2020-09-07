@@ -64,7 +64,6 @@
   stroke-width: .5;
   stroke-dasharray: 1;
   fill: #afafaf; 
-  align: center;
 }
 
 #neighborhoodPopover { 
@@ -202,11 +201,11 @@ d3.json("nyc.json", function(error, nyc) {
       "$$app_token" : "vjYOozd5OGcoGpTencAURAUw5"
     }
     }).done(function(data) {
-      console.log(data);
-     $(document).ready(function(){
-     var projection = d3.geoConicConformal()
+	  
+	    var projection = d3.geoConicConformal()
      			.rotate([96, -39])
      			.fitSize([width, height], nycity);
+	  
      var path = d3.geoPath().projection(projection);
 
      var dropDown = d3.select("body").append("dropDownMenu").append("select")
@@ -224,9 +223,9 @@ d3.json("nyc.json", function(error, nyc) {
 			   .data(unique_values)
 			   .enter()
 			   .append("option");
+	  
+     //$(document).ready(function(){
       
-    
-
 	     $("#cuisinepicker").selectpicker({
 		//noneSelectedText : 'Select a Cuisine Type',
 		title: 'Select a Restaurant Type',
@@ -234,7 +233,7 @@ d3.json("nyc.json", function(error, nyc) {
 		showContent : false,
 		showTick: true
 	    });
-     });
+     //});
 	  
     //("#cuisinepicker").selectpicker.refresh();
 	  
