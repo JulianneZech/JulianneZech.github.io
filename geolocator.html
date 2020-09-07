@@ -216,30 +216,25 @@ d3.json("nyc.json", function(error, nyc) {
 	  
      var path = d3.geoPath().projection(projection);
 
-     var dropDown = d3.select("body").append("dropDownMenu").attr("id", "cuisinepicker");//.append("select")
-              //.attr("visibility", "hidden !important");
-     //dropDown.hide();
-	     // .attr("name", "name-list")
-	     // .attr("id", "cuisinepicker");
+     var dropDown = d3.select("body").append("dropDownMenu").append("select")
+              .attr("visibility", "hidden !important");
+	      .attr("name", "name-list")
+	      .attr("id", "cuisinepicker");
+
+     $("#cuisinepicker").selectpicker("render");
 	  	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
      var sorted = unique_values.sort();
 
      var options = dropDown.selectAll("option");
-                          // .attr("visibility", "hidden !important")
-			  // .data(unique_values);
-			  // .enter()
-			  // .append("option");
-	  
-     $(document).ready(function(){
-	     
-	     dropDown.append("select");
-	     
-	     options.attr("visibility", "hidden !important")
+                           .attr("visibility", "hidden !important")
 			   .data(unique_values);
 			   .enter()
 			   .append("option");
+	  
+	  
+     $(document).ready(function(){
       
 	     $("#cuisinepicker").selectpicker({
 		title: 'Select a Restaurant Type',
