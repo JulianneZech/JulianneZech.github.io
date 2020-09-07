@@ -158,15 +158,12 @@ path {
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
-	
-var nycity;
+
 
 // http://bl.ocks.org/pstuffa/38111aa2e3077baa67f1d0c42df9bf08
 // http://data.beta.nyc//dataset/0ff93d2d-90ba-457c-9f7e-39e47bf2ac5f/resource/35dd04fb-81b3-479b-a074-a27a37888ce7/download/d085e2f8d0b54d4590b1e7d1f35594c1pediacitiesnycneighborhoods.geojson
 d3.json("nyc.json", function(error, nyc) {
   if (error) throw error;
-
-  nycity = nyc;
 
   var path = d3.geoPath()
       .projection(d3.geoConicConformal()
@@ -212,7 +209,7 @@ d3.json("nyc.json", function(error, nyc) {
 	  
 	    var projection = d3.geoConicConformal()
      			.rotate([96, -39])
-     			.fitSize([width, height], nycity);
+     			.fitSize([width, height], nyc);
 	  
      var path = d3.geoPath().projection(projection);
 
@@ -221,7 +218,7 @@ d3.json("nyc.json", function(error, nyc) {
 	      .attr("name", "name-list")
 	      .attr("id", "cuisinepicker");
 
-    // $("#cuisinepicker").selectpicker("render");
+     $("#cuisinepicker").selectpicker("render");
 	  	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
