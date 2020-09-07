@@ -88,6 +88,7 @@ path {
   background-color: white;
   border-style: solid;
   border-top: 10px;
+  margin-left: 20px;
   border-bottom: none;
   border-right: none;
   bottom: 450px;
@@ -215,9 +216,10 @@ d3.json("nyc.json", function(error, nyc) {
      var path = d3.geoPath().projection(projection);
 
      var dropDown = d3.select("body").append("dropDownMenu").append("select")
-              .attr("visibility", "hidden !important")
+              .attr("visibility", "hidden !important");
+     dropDown.hide();
 	     // .attr("name", "name-list")
-	      .attr("id", "cuisinepicker");
+	     // .attr("id", "cuisinepicker");
 	  	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
@@ -225,9 +227,9 @@ d3.json("nyc.json", function(error, nyc) {
 
      var options = dropDown.selectAll("option")
                            .attr("visibility", "hidden !important")
-			   .data(unique_values)
-			   .enter()
-			   .append("option");
+			   .data(unique_values);
+			   //.enter()
+			   //.append("option");
 	  
      $(document).ready(function(){
       
