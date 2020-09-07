@@ -101,6 +101,10 @@ path {
   bottom: 450px;
   title: "Select a Type of Food";
 }
+
+.dropDownMenu {
+  margin-bottom: 100px;
+}
 	
 </style>
 	
@@ -109,7 +113,7 @@ path {
   <!-- <svg width="1440" height="1080"></svg> -->
 <svg width="960" height="720"></svg> 
 <div id='neighborhoodPopover'> </div>
-<div id='dropDown'> </div>
+<div id='dropDownMenu' class='dropDownMenu'> </div>
 
 <script>
 
@@ -176,7 +180,7 @@ d3.json("nyc.json", function(error, nyc) {
      			.fitSize([width, height], nycity);
      var path = d3.geoPath().projection(projection);
 
-     var dropDown = d3.select("body").append("select")
+     var dropDown = d3.select("dropDownMenu").append("select")
 	      .attr("name", "name-list")
 	      .attr("id", "cuisinepicker")
               .attr("visibility", "hidden");
