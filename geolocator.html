@@ -126,6 +126,11 @@ path {
   display: block;
   margin: 0 auto;
 }
+
+.svg-container {
+  display: inline-block;
+  margin: 0 auto;
+}
 	
 </style>
 
@@ -134,10 +139,12 @@ path {
 </head>
 	
 <body>
-<svg width="960" height="720"></svg> 
-<div id='neighborhoodPopover'> </div>
-<div id='dropDownMenu' class='dropDownMenu'> </div>
-
+<div class="svg-container">
+  <svg width="960" height="720"></svg> 
+  <div id='neighborhoodPopover'> </div>
+  <div id='dropDownMenu' class='dropDownMenu'> </div>
+</div>
+	
 <script>
 
 var svg = d3.select("svg"),
