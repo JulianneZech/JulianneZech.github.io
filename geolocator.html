@@ -101,6 +101,8 @@ path {
 }
 
 .dropDownMenu {
+  opacity: 0;
+  visibility: hidden important!;
   position: relative;
   margin: 30px;
   border: 30px;
@@ -212,8 +214,8 @@ d3.json("nyc.json", function(error, nyc) {
      var path = d3.geoPath().projection(projection);
 
      var dropDown = d3.select("body").append("dropDownMenu").append("select")
-              .attr("visibility", "hidden !important;")
-	      .attr("name", "name-list")
+              .attr("visibility", "hidden !important")
+	     // .attr("name", "name-list")
 	      .attr("id", "cuisinepicker");
 	  	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
@@ -222,7 +224,6 @@ d3.json("nyc.json", function(error, nyc) {
 
      var options = dropDown.selectAll("option")
                            .attr("visibility", "hidden !important")
-			   .attr("id", "cuisineselector")
 			   .data(unique_values)
 			   .enter()
 			   .append("option");
@@ -230,7 +231,6 @@ d3.json("nyc.json", function(error, nyc) {
      $(document).ready(function(){
       
 	     $("#cuisinepicker").selectpicker({
-		//noneSelectedText : 'Select a Cuisine Type',
 		title: 'Select a Restaurant Type',
 		liveSearch : true,
 		showContent : false,
