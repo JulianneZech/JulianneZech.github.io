@@ -238,9 +238,10 @@ d3.json("nyc.json", function(error, nyc) {
 		showContent : false,
 		showTick: true
 	    });
+	     
+	     $('#cuisinepicker').selectpicker('refresh');
      });
 	  
-    //("#cuisinepicker").selectpicker.refresh();
 	  
       // A function that update the color of the circle
       function updateChart(cuisineType) {
