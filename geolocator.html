@@ -202,7 +202,7 @@ d3.json("nyc.json", function(error, nyc) {
     }
     }).done(function(data) {
       console.log(data);
-    
+     $(document).ready(function(){
      var projection = d3.geoConicConformal()
      			.rotate([96, -39])
      			.fitSize([width, height], nycity);
@@ -224,7 +224,7 @@ d3.json("nyc.json", function(error, nyc) {
 			   .enter()
 			   .append("option");
       
-     $(document).ready(function(){
+    
 
 	     $("#cuisinepicker").selectpicker({
 		//noneSelectedText : 'Select a Cuisine Type',
