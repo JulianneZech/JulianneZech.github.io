@@ -227,7 +227,7 @@ d3.json("nyc.json", function(error, nyc) {
      var unique_values = d3.set(unique).values();
      var sorted = unique_values.sort();
 
-     var options = dropDown.selectAll("option");
+     var options = dropDown.selectAll("option")
                            .attr("visibility", "hidden !important")
 			   .data(unique_values)
 			   .enter()
