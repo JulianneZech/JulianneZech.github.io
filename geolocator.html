@@ -93,7 +93,7 @@ path {
   border-right: none;
   left: 20px;
   bottom: 450px;
-  margin-top: -50%; /* for relative positioning */
+  margin-top: -50%; 
   margin-bottom: 10px;
   font-weight: 200;
   padding: 12px 12px;
@@ -221,7 +221,7 @@ d3.json("nyc.json", function(error, nyc) {
 	      .attr("name", "name-list")
 	      .attr("id", "cuisinepicker");
 
-     $("#cuisinepicker").selectpicker("render");
+    // $("#cuisinepicker").selectpicker("render");
 	  	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
