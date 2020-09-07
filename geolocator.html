@@ -210,7 +210,7 @@ d3.json("nyc.json", function(error, nyc) {
      			.fitSize([width, height], nycity);
      var path = d3.geoPath().projection(projection);
 
-     var dropDown = d3.select("body").append("dropDownMenu").append("select")
+     var dropDown = d3.select("dropDownMenu").append("select")
 	      .attr("name", "name-list")
 	      .attr("id", "cuisinepicker")
               .attr("visibility", "hidden");
