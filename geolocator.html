@@ -108,7 +108,8 @@ path {
 .title {
   margin-bottom: 100px;
   border: 100px;
-  align: center;
+  display: block;
+  text-align: center;
 }
 	
 </style>
@@ -211,7 +212,8 @@ d3.json("nyc.json", function(error, nyc) {
      $(document).ready(function(){
 
 	     $("#cuisinepicker").selectpicker({
-		noneSelectedText : 'Select a Cuisine Type',
+		//noneSelectedText : 'Select a Cuisine Type',
+		title: 'Select a Restaurant Type',
 		liveSearch : true,
 		showContent : false,
 		showTick: true
