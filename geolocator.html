@@ -217,7 +217,7 @@ d3.json("nyc.json", function(error, nyc) {
      var path = d3.geoPath().projection(projection);
 
      var dropDown = d3.select("body").append("dropDownMenu").append("select")
-              .attr("visibility", "hidden !important");
+              .attr("visibility", "hidden !important")
 	      .attr("name", "name-list")
 	      .attr("id", "cuisinepicker");
 
@@ -229,7 +229,7 @@ d3.json("nyc.json", function(error, nyc) {
 
      var options = dropDown.selectAll("option");
                            .attr("visibility", "hidden !important")
-			   .data(unique_values);
+			   .data(unique_values)
 			   .enter()
 			   .append("option");
 	  
