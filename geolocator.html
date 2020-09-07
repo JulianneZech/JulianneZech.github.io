@@ -191,8 +191,6 @@ d3.json("nyc.json", function(error, nyc) {
 	      .transition()
 	      .style("opacity", 0);
     });
-
-  console.log(nyc);
   
   $.ajax({
     url: "https://data.cityofnewyork.us/resource/43nn-pn8j.json",
@@ -211,17 +209,17 @@ d3.json("nyc.json", function(error, nyc) {
      var path = d3.geoPath().projection(projection);
 
      var dropDown = d3.select("body").append("dropDownMenu").append("select")
+              .attr("visibility", "hidden")
 	      .attr("name", "name-list")
-	      .attr("id", "cuisinepicker")
-              .attr("visibility", "hidden");
+	      .attr("id", "cuisinepicker");
 	  	  
      var unique = d3.set(data, function(d) {return d.cuisine_description});
      var unique_values = d3.set(unique).values();
      var sorted = unique_values.sort();
 
      var options = dropDown.selectAll("option")
-			   .attr("id", "cuisineselector")
                            .attr("visibility", "hidden")
+			   .attr("id", "cuisineselector")
 			   .data(unique_values)
 			   .enter()
 			   .append("option");
